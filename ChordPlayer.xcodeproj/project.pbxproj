@@ -1,0 +1,338 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EB71A16C155EB6EF00EEF433 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB71A16B155EB6EF00EEF433 /* Cocoa.framework */; };
+		EB71A16E155EB6F000EEF433 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB71A16D155EB6EF00EEF433 /* MacRuby.framework */; };
+		EB71A175155EB6F000EEF433 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB71A173155EB6F000EEF433 /* InfoPlist.strings */; };
+		EB71A177155EB6F000EEF433 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB71A176155EB6F000EEF433 /* main.m */; };
+		EB71A17C155EB6F000EEF433 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB71A17A155EB6F000EEF433 /* MainMenu.xib */; };
+		EB71A17F155EB6F000EEF433 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = EB71A17E155EB6F000EEF433 /* rb_main.rb */; };
+		EB71A181155EB6F000EEF433 /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = EB71A180155EB6F000EEF433 /* AppDelegate.rb */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EB71A167155EB6EF00EEF433 /* ChordPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB71A16B155EB6EF00EEF433 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		EB71A16D155EB6EF00EEF433 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = DEVELOPER_DIR; };
+		EB71A172155EB6F000EEF433 /* ChordPlayer-Info.plist */ = {isa = PBXFileReference; path = "ChordPlayer-Info.plist"; sourceTree = "<group>"; };
+		EB71A174155EB6F000EEF433 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EB71A176155EB6F000EEF433 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EB71A178155EB6F000EEF433 /* ChordPlayer-Prefix.pch */ = {isa = PBXFileReference; path = "ChordPlayer-Prefix.pch"; sourceTree = "<group>"; };
+		EB71A17B155EB6F000EEF433 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		EB71A17E155EB6F000EEF433 /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
+		EB71A180155EB6F000EEF433 /* AppDelegate.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB71A164155EB6EF00EEF433 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB71A16C155EB6EF00EEF433 /* Cocoa.framework in Frameworks */,
+				EB71A16E155EB6F000EEF433 /* MacRuby.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB71A15C155EB6EF00EEF433 = {
+			isa = PBXGroup;
+			children = (
+				EB71A170155EB6F000EEF433 /* ChordPlayer */,
+				EB71A16A155EB6EF00EEF433 /* Frameworks */,
+				EB71A168155EB6EF00EEF433 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EB71A168155EB6EF00EEF433 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB71A167155EB6EF00EEF433 /* ChordPlayer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB71A16A155EB6EF00EEF433 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB71A16B155EB6EF00EEF433 /* Cocoa.framework */,
+				EB71A16D155EB6EF00EEF433 /* MacRuby.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB71A170155EB6F000EEF433 /* ChordPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				EB71A180155EB6F000EEF433 /* AppDelegate.rb */,
+				EB71A179155EB6F000EEF433 /* Resources */,
+				EB71A17D155EB6F000EEF433 /* Other Sources */,
+				EB71A171155EB6F000EEF433 /* Supporting Files */,
+			);
+			path = ChordPlayer;
+			sourceTree = "<group>";
+		};
+		EB71A171155EB6F000EEF433 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EB71A172155EB6F000EEF433 /* ChordPlayer-Info.plist */,
+				EB71A173155EB6F000EEF433 /* InfoPlist.strings */,
+				EB71A176155EB6F000EEF433 /* main.m */,
+				EB71A178155EB6F000EEF433 /* ChordPlayer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EB71A179155EB6F000EEF433 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EB71A17A155EB6F000EEF433 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EB71A17D155EB6F000EEF433 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				EB71A17E155EB6F000EEF433 /* rb_main.rb */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		EB71A16F155EB6F000EEF433 /* Deployment */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "--compile --embed";
+			buildConfigurationList = EB71A187155EB6F000EEF433 /* Build configuration list for PBXLegacyTarget "Deployment" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/local/bin/macruby_deploy;
+			dependencies = (
+			);
+			name = Deployment;
+			passBuildSettingsInEnvironment = 1;
+			productName = Deployment;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		EB71A166155EB6EF00EEF433 /* ChordPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB71A184155EB6F000EEF433 /* Build configuration list for PBXNativeTarget "ChordPlayer" */;
+			buildPhases = (
+				EB71A163155EB6EF00EEF433 /* Sources */,
+				EB71A164155EB6EF00EEF433 /* Frameworks */,
+				EB71A165155EB6EF00EEF433 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChordPlayer;
+			productName = ChordPlayer;
+			productReference = EB71A167155EB6EF00EEF433 /* ChordPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB71A15E155EB6EF00EEF433 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = EB71A161155EB6EF00EEF433 /* Build configuration list for PBXProject "ChordPlayer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EB71A15C155EB6EF00EEF433;
+			productRefGroup = EB71A168155EB6EF00EEF433 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB71A166155EB6EF00EEF433 /* ChordPlayer */,
+				EB71A16F155EB6F000EEF433 /* Deployment */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB71A165155EB6EF00EEF433 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB71A175155EB6F000EEF433 /* InfoPlist.strings in Resources */,
+				EB71A17C155EB6F000EEF433 /* MainMenu.xib in Resources */,
+				EB71A17F155EB6F000EEF433 /* rb_main.rb in Resources */,
+				EB71A181155EB6F000EEF433 /* AppDelegate.rb in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB71A163155EB6EF00EEF433 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB71A177155EB6F000EEF433 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EB71A173155EB6F000EEF433 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB71A174155EB6F000EEF433 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EB71A17A155EB6F000EEF433 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB71A17B155EB6F000EEF433 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EB71A182155EB6F000EEF433 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EB71A183155EB6F000EEF433 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EB71A185155EB6F000EEF433 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChordPlayer/ChordPlayer-Prefix.pch";
+				INFOPLIST_FILE = "ChordPlayer/ChordPlayer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EB71A186155EB6F000EEF433 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChordPlayer/ChordPlayer-Prefix.pch";
+				INFOPLIST_FILE = "ChordPlayer/ChordPlayer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EB71A188155EB6F000EEF433 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		EB71A189155EB6F000EEF433 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB71A161155EB6EF00EEF433 /* Build configuration list for PBXProject "ChordPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB71A182155EB6F000EEF433 /* Debug */,
+				EB71A183155EB6F000EEF433 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB71A184155EB6F000EEF433 /* Build configuration list for PBXNativeTarget "ChordPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB71A185155EB6F000EEF433 /* Debug */,
+				EB71A186155EB6F000EEF433 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EB71A187155EB6F000EEF433 /* Build configuration list for PBXLegacyTarget "Deployment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB71A188155EB6F000EEF433 /* Debug */,
+				EB71A189155EB6F000EEF433 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB71A15E155EB6EF00EEF433 /* Project object */;
+}
