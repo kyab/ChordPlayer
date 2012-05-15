@@ -14,19 +14,34 @@
 		EB71A17C155EB6F000EEF433 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB71A17A155EB6F000EEF433 /* MainMenu.xib */; };
 		EB71A17F155EB6F000EEF433 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = EB71A17E155EB6F000EEF433 /* rb_main.rb */; };
 		EB71A181155EB6F000EEF433 /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = EB71A180155EB6F000EEF433 /* AppDelegate.rb */; };
+		EB71A18B155EB80B00EEF433 /* Controller.rb in Resources */ = {isa = PBXBuildFile; fileRef = EB71A18A155EB80B00EEF433 /* Controller.rb */; };
+		EB71A191155EC19600EEF433 /* AudioOutputEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = EB71A18F155EC19600EEF433 /* AudioOutputEngine.m */; };
+		EB71A194155EC1D100EEF433 /* SoundDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB71A193155EC1D100EEF433 /* SoundDelegate.mm */; };
+		EB71A196155EC32500EEF433 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB71A195155EC32500EEF433 /* CoreAudio.framework */; };
+		EB71A198155EC34F00EEF433 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB71A197155EC34F00EEF433 /* AudioUnit.framework */; };
+		EB71A1A015629F1F00EEF433 /* MyScheduler.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB71A19F15629F1F00EEF433 /* MyScheduler.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EB71A167155EB6EF00EEF433 /* ChordPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB71A16B155EB6EF00EEF433 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		EB71A16D155EB6EF00EEF433 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = DEVELOPER_DIR; };
-		EB71A172155EB6F000EEF433 /* ChordPlayer-Info.plist */ = {isa = PBXFileReference; path = "ChordPlayer-Info.plist"; sourceTree = "<group>"; };
+		EB71A172155EB6F000EEF433 /* ChordPlayer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChordPlayer-Info.plist"; sourceTree = "<group>"; };
 		EB71A174155EB6F000EEF433 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EB71A176155EB6F000EEF433 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EB71A178155EB6F000EEF433 /* ChordPlayer-Prefix.pch */ = {isa = PBXFileReference; path = "ChordPlayer-Prefix.pch"; sourceTree = "<group>"; };
+		EB71A178155EB6F000EEF433 /* ChordPlayer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChordPlayer-Prefix.pch"; sourceTree = "<group>"; };
 		EB71A17B155EB6F000EEF433 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		EB71A17E155EB6F000EEF433 /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		EB71A180155EB6F000EEF433 /* AppDelegate.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
+		EB71A18A155EB80B00EEF433 /* Controller.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Controller.rb; sourceTree = "<group>"; };
+		EB71A18F155EC19600EEF433 /* AudioOutputEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioOutputEngine.m; sourceTree = "<group>"; };
+		EB71A190155EC19600EEF433 /* AudioOutputEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioOutputEngine.h; sourceTree = "<group>"; };
+		EB71A192155EC1D100EEF433 /* SoundDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundDelegate.h; sourceTree = "<group>"; };
+		EB71A193155EC1D100EEF433 /* SoundDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SoundDelegate.mm; sourceTree = "<group>"; };
+		EB71A195155EC32500EEF433 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		EB71A197155EC34F00EEF433 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		EB71A19E15629F1000EEF433 /* MyScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScheduler.h; sourceTree = "<group>"; };
+		EB71A19F15629F1F00EEF433 /* MyScheduler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyScheduler.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB71A198155EC34F00EEF433 /* AudioUnit.framework in Frameworks */,
+				EB71A196155EC32500EEF433 /* CoreAudio.framework in Frameworks */,
 				EB71A16C155EB6EF00EEF433 /* Cocoa.framework in Frameworks */,
 				EB71A16E155EB6F000EEF433 /* MacRuby.framework in Frameworks */,
 			);
@@ -62,6 +79,8 @@
 		EB71A16A155EB6EF00EEF433 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB71A197155EC34F00EEF433 /* AudioUnit.framework */,
+				EB71A195155EC32500EEF433 /* CoreAudio.framework */,
 				EB71A16B155EB6EF00EEF433 /* Cocoa.framework */,
 				EB71A16D155EB6EF00EEF433 /* MacRuby.framework */,
 			);
@@ -72,6 +91,13 @@
 			isa = PBXGroup;
 			children = (
 				EB71A180155EB6F000EEF433 /* AppDelegate.rb */,
+				EB71A18A155EB80B00EEF433 /* Controller.rb */,
+				EB71A19F15629F1F00EEF433 /* MyScheduler.mm */,
+				EB71A19E15629F1000EEF433 /* MyScheduler.h */,
+				EB71A18F155EC19600EEF433 /* AudioOutputEngine.m */,
+				EB71A190155EC19600EEF433 /* AudioOutputEngine.h */,
+				EB71A192155EC1D100EEF433 /* SoundDelegate.h */,
+				EB71A193155EC1D100EEF433 /* SoundDelegate.mm */,
 				EB71A179155EB6F000EEF433 /* Resources */,
 				EB71A17D155EB6F000EEF433 /* Other Sources */,
 				EB71A171155EB6F000EEF433 /* Supporting Files */,
@@ -177,6 +203,7 @@
 				EB71A17C155EB6F000EEF433 /* MainMenu.xib in Resources */,
 				EB71A17F155EB6F000EEF433 /* rb_main.rb in Resources */,
 				EB71A181155EB6F000EEF433 /* AppDelegate.rb in Resources */,
+				EB71A18B155EB80B00EEF433 /* Controller.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +215,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB71A177155EB6F000EEF433 /* main.m in Sources */,
+				EB71A191155EC19600EEF433 /* AudioOutputEngine.m in Sources */,
+				EB71A194155EC1D100EEF433 /* SoundDelegate.mm in Sources */,
+				EB71A1A015629F1F00EEF433 /* MyScheduler.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +353,7 @@
 				EB71A186155EB6F000EEF433 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB71A187155EB6F000EEF433 /* Build configuration list for PBXLegacyTarget "Deployment" */ = {
 			isa = XCConfigurationList;
@@ -331,6 +362,7 @@
 				EB71A189155EB6F000EEF433 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

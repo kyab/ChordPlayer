@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface MyScheduler : NSObject
+#import "SoundDelegate.h"
+@interface MyScheduler : NSObject{
+	id soundDelegate_;
+}
 
 @end
