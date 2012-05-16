@@ -24,11 +24,12 @@ static MyScheduler *sharedMyScheduler = nil;
 	soundDelegate_ = soundDelegate;
 }
 
+/*
 -(void)play:(float)freq withWhile:(int)msec{
 	NSLog(@"MyScheduler played with %f[hz], %lu[msec]", freq, msec);
 	Synth *synth = [soundDelegate_ synth];
 }
-
+*/
 -(void)noteOn:(int)noteNumber{
 	Synth *synth = [soundDelegate_ synth];
 	synth->noteOn(noteNumber, 127);

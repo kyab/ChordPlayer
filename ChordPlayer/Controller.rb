@@ -6,7 +6,7 @@
 #  Copyright 2012年 __MyCompanyName__. All rights reserved.
 #
 
-class String
+class NSString		
 	def play
 		Chords.new(self).play
 	end
@@ -65,6 +65,7 @@ class Chord
 		relatives.each do |r|
 			@notes << baseName2NoteNumber(base) + r
 		end
+		
 			
 	end
 end
@@ -78,34 +79,41 @@ class Chords
 	end
 	
 	def parse(str)
-		str.strip!
+		str.each_line do |line|
+			p line
+			parseLine(line.gsub("　"," ").strip)
+		end
+	end	
+	
+	def parseLine(line)
+		line.strip!
 		
 		i = 0
 		state  = :none #:none,:after_base
 
 		while(true)
-			if (i >= str.size)
+			if (i >= line.size)
 				break if state == :none
 			end
 			
 			case state
 			when :none
 				currentBase = ""
-				case str[i..-1]
+				case line[i..-1]
 				when /(Ab|A#|A|Bb|B|C#|C|Db|D#|D|Eb|E|F#|F|Gb|G#|G)(.*)/
 					currentBase = $1
 					state = :after_base
 					i += $1.size
 				else
-					raise "base can't recognized:#{str}"
+					raise "base can't recognized:#{line[i..-1]}"
 				end
 				
 			when :after_base
 				nextCode_index = i
 				while(true)
-					break if (nextCode_index > str.size)
-					if str[nextCode_index] =~/[ABCDEFG]/
-						if (str[nextCode_index-1] == "/")			#on code
+					break if (nextCode_index > line.size)
+					if line[nextCode_index] =~/[ABCDEFG]/
+						if (line[nextCode_index-1] == "/")			#on code
 							puts "on code detected"
 							nextCode_index += 1
 							next
@@ -116,7 +124,7 @@ class Chords
 					nextCode_index += 1
 				end
 				
-				subpart_and_duration = str[i..nextCode_index-1]
+				subpart_and_duration = line[i..nextCode_index-1]
 				subpart = ""
 				
 				if (subpart_and_duration =~ /([^ -]*)(.*)/)
@@ -232,12 +240,16 @@ $scheduler = MyScheduler.sharedMyScheduler
 $scheduler.soundDelegate = $soundDelegate
 				 
 class Controller
-
+	attr_accessor :field				   
+					   
 	def awakeFromNib
 		puts"ChordPlayer awaken"
 		initAudioEngine()
 		initSoundDelegate()
 		@audioEngine.start()
+		
+		@field.setFont(NSFont.fontWithName("Osaka-Mono", size:18))
+		
 	end
 	
 	def initAudioEngine
@@ -251,16 +263,9 @@ class Controller
 	end
 	
 	def doplay(sender)
-		#"C - Fm - GM/Bb - C - A-B-Cm7b5-D/F#-A".play
-		#"BM7 - C69 - E - E7".play
-		#"EM7 - A7(13) - Eb7-9 - G#7(-13)".play
-		#"E6 - F#7(9)".play
-		#"AbM7/C - C#7(13) - AM7/C# - D7(13) - Abm - C#7b5 - F#m7 - Bm7b5".play
-		#"E6 -  F#7(9)".play
-		"AM7/C# - Cdim - Bm7 - Cdim".play
-		"C#m7 -   C#7 - DM7 - Dm6".play
-		"C#m7 -  Cdim - C#m7b5 - F#7".play
-		"B7/F# - Fdim7".play
+	
+		#Here is what things happen.
+		@field.string.play
 	end
 
 end
