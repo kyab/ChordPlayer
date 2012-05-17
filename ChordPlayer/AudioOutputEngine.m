@@ -157,6 +157,7 @@ OSStatus MyRender( void                        *inRefCon,
 	[NSThread currentThread];	//seems does not work as GC Programming Guide says.????
 	//http://osdir.com/ml/cocoa-dev/2009-09/msg00672.html OK, don't care about auto_zone_thread_registration_error() in console log.
 	
+	/*
 	static UInt32 count = 0;
 	if ((count % 1000) == 0){
 		
@@ -177,6 +178,7 @@ OSStatus MyRender( void                        *inRefCon,
 		
 	}
 	count++;
+	*/
 	
 	UInt32 sampleNum = inNumberFrames;	//in my case
 	SInt16 *left = (SInt16 *)ioData->mBuffers[0].mData;

@@ -13,9 +13,11 @@ class NSString
 end
 
 class Chord
-	attr_accessor :notes
-	def initialize(base,on,subpart)
-		puts "new Chord #{base},#{subpart},/#{on}"
+	attr_accessor :notes, :duration
+	def initialize(base,on,subpart,duration = 4)
+		puts "new Chord #{base},#{subpart},/#{on},duration = #{duration}"
+		
+		@duration = duration
 		@notes = []
 		if (on != "")
 			@notes << baseName2NoteNumber(on)
@@ -59,7 +61,7 @@ class Chord
 		when "7(-13)"
 			[4,7,10,20]
 		else
-			raise "#{subpart}not supported"
+			raise "\"#{subpart}\"not supported"
 		end
 		
 		relatives.each do |r|
@@ -80,13 +82,13 @@ class Chords
 	
 	def parse(str)
 		str.each_line do |line|
-			p line
-			parseLine(line.gsub("　"," ").strip)
+			parseLine line.gsub("　"," ")
 		end
 	end	
 	
 	def parseLine(line)
-		line.strip!
+		#sanitize
+		line = line.lstrip.gsub("\n","")
 		
 		i = 0
 		state  = :none #:none,:after_base
@@ -112,10 +114,10 @@ class Chords
 				nextCode_index = i
 				while(true)
 					break if (nextCode_index > line.size)
-					if line[nextCode_index] =~/[ABCDEFG]/
+					if line[nextCode_index] =~/(Ab|A#|A|Bb|B|C#|C|Db|D#|D|Eb|E|F#|F|Gb|G#|G)(.*)/
 						if (line[nextCode_index-1] == "/")			#on code
 							puts "on code detected"
-							nextCode_index += 1
+							nextCode_index += $1.size
 							next
 						else
 							break
@@ -126,18 +128,30 @@ class Chords
 				
 				subpart_and_duration = line[i..nextCode_index-1]
 				subpart = ""
-				
-				if (subpart_and_duration =~ /([^ -]*)(.*)/)
-
+				duration = " "
+				if (subpart_and_duration =~ /([^ -]*)(.*)/)			#" ","-"以外と
 					subpart = $1
 					if ($2.include?("-9") || $2.include?("-13"))
-						target = $2[1..$2.size-1]
-						if (target =~ /([^ -]*)(.*)/)
+						if ($2[1..$2.size-1] =~ /([^ -]*).*/)
 							subpart << "-" << $1
 						end
 					end
-					
+					duration = subpart_and_duration[subpart.size..-1]
 				end
+				
+				if (duration =~ /([ ]*).*/)
+					duration  = case $1.size
+					when 2
+						4
+					when 1
+						2
+					when 0
+						1
+					end
+				end
+
+				p subpart
+				p duration
 				
 				if (subpart =~ /(.*)\/(.*)/)
 					on = $2
@@ -146,9 +160,9 @@ class Chords
 					on = ""
 					onIgai = subpart
 				end
-				c = Chord.new(currentBase, on, onIgai)
-
+				c = Chord.new(currentBase, on, onIgai, duration)
 				@chords << c
+				
 				i = nextCode_index
 				state = :none
 			end
@@ -161,7 +175,7 @@ class Chords
 				$scheduler.noteOn(note)
 			end
 			
-			sleep(1.0)
+			sleep(chord.duration * 0.5)
 			
 			chord.notes.each do |note|
 				$scheduler.noteOff(note)
@@ -244,12 +258,22 @@ class Controller
 					   
 	def awakeFromNib
 		puts"ChordPlayer awaken"
-		initAudioEngine()
-		initSoundDelegate()
-		@audioEngine.start()
+
 		
 		@field.setFont(NSFont.fontWithName("Osaka-Mono", size:18))
+		@field.string = <<-END.gsub(/^\t\t\t/,"")
+			AM7/C# - Cdim - Bm7 - Cdim 
+			C#m7 - C#7 - DM7 - Dm6 
+			Bm7 - Bm7b5 - G#m7 - Ebdim7 
+			Bm7 - Bm7b5 
+			A#m7b5-Gm6-B7-Fdim7
+			C#m7b5-F#-Gm6-F#7+9
+			Bm7 - F#m6 - Fdim7 
+		END
 		
+		initAudioEngine()
+		initSoundDelegate()
+		@audioEngine.start()	
 	end
 	
 	def initAudioEngine
