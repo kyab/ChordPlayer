@@ -6,6 +6,8 @@
 #  Copyright 2012年 __MyCompanyName__. All rights reserved.
 #
 
+class ChordSyntaxError < StandardError; end
+
 class NSString		
 	def play
 		ce = ChordsExtractor.new(self)
@@ -165,6 +167,8 @@ class Chord
 			[4,9,14]
 		when "7b5"
 			[4,6,10]
+		when "9"
+			[4,7,14]
 		when "7(9)"
 			[4,7,10,14]
 		when "7+9"
@@ -234,8 +238,13 @@ class ChordsExtractor
 	
 private
 	def parse(str)
-		str.each_line do |line|
-			parseLine line.gsub("　"," ")
+		str.each_line.each_with_index do |line, lineNo|
+			begin
+				parseLine line.gsub("　"," ")
+			rescue =>e
+				p e
+				raise ChordSyntaxError,"(parse) syntax error at line:#{lineNo + 1},:#{line}"
+			end
 		end
 	end	
 	
@@ -366,23 +375,45 @@ class Controller
 		string = string.each_line.map do |line|
 			line_chords = ChordsExtractor.new(line).chords
 			line_chords.map do |chord|
-				chord.transpose!(num)
+				chord.transpose!(num).to_s
 			end.join("-").lstrip
 		end.join("\n")
 		@field.string = string
 	end
 	
 	def up(sender)
-		transpose(1)
+		begin
+			transpose(1)
+		rescue =>e
+			NSLog("error occured")
+		end
 	end
 	
 	def down(sender)
-		transpose(-1)
+		begin
+			transpose(-1)
+		rescue =>e
+			NSLog("error occured")
+		end
 	end
 	
 	def doplay(sender)
 		#Here is what things happen.
-		@field.string.play
+		begin
+			@field.string.play
+		rescue ChordSyntaxError => e
+			p e
+			alert = NSAlert.alertWithMessageText("error",
+					defaultButton:"OK",
+					alternateButton:nil,
+					otherButton:nil,
+					informativeTextWithFormat:"syntax error.#{e.description})")
+			alert.alertStyle = NSWarningAlertStyle
+			alert.runModal
+		else
+			
+		end
+		
 	end
 
 end
