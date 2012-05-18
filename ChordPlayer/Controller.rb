@@ -8,21 +8,25 @@
 
 class NSString		
 	def play
-		Chords.new(self).play
+		ce = ChordsExtractor.new(self)
+		chords = ce.chords 
+		
+		chords.each do |chord|
+			chord.notes.each do |note|
+				$scheduler.noteOn(note)
+			end
+			
+			sleep(chord.duration * 0.5)
+			
+			chord.notes.each do |note|
+				$scheduler.noteOff(note)
+			end
+		end
 	end
-
 end
 
 def baseName2NoteNumber(baseName)
 	case baseName
-	when "C"
-		63
-	when "C#", "Db"
-		64
-	when "D", "D"
-		65
-	when "D#", "Eb"
-		66
 	when "E"
 		67
 	when "F"
@@ -39,14 +43,40 @@ def baseName2NoteNumber(baseName)
 		73
 	when "B"
 		74
+	when "C"
+		75
+	when "C#", "Db"
+		76
+	when "D", "D"
+		77
+	when "D#", "Eb"
+		78
 	else
 		raise "#{baseName} can't be recognized as base note name."
 	end
 end
 
+
+#needs test!!!!!!!!!!!!!!!!!
 def transpose(baseName, num)
+
+	normalizedBaseName = case baseName
+	when "Db"
+		"C#"
+	when "Eb"
+		"D#"
+	when "Gb"
+		"F#"
+	when "Ab"
+		"G#"
+	when "Bb"
+		"A#"
+	else 
+		baseName
+	end	
+		
 	chords_array= ["C","C#","D","D#","E","F","F#","G", "G#","A","A#","B"] #=>size = 12
-	fromC = chords_array.index(baseName)
+	fromC = chords_array.index(normalizedBaseName)
 	raise "basename error. \"#{baseName}\"" if fromC == nil
 	
 	if (fromC + num) > chords_array.size-1
@@ -151,13 +181,19 @@ class Chord
 		
 		relatives.each do |r|
 			@notes << baseName2NoteNumber(@base_str) + r
-		end
-		
+		end		
 	end
 
-	
 	def to_s
-		ret = "#{@base_str}#{@subpart_str}"
+		ret = case @duration 
+		when 1
+			""
+		when 2
+			" "
+		when 4
+			"  "
+		end
+		ret << "#{@base_str}#{@subpart_str}"
 		ret << "/#{@on_str}" unless @on_str.empty?
 		ret << case @duration
 		when 1
@@ -182,16 +218,21 @@ end
 
 
 p Chord.new("C#","","m7",2).to_s
-p Chord.new("C#","","m7",2).transpose!(10).to_s
+p Chord.new("C#","","m7",2).transpose!(2).to_s #=>
+p Chord.new("Eb","","m6",2).transpose!(2).to_s #=>F
 
-class Chords
 
+#TODO: Consider this to be singleton class
+class ChordsExtractor
+	attr_reader :chords
+	
 	def initialize(str)
 		@notes = []
 		@chords = []
 		parse(str)
 	end
 	
+private
 	def parse(str)
 		str.each_line do |line|
 			parseLine line.gsub("　"," ")
@@ -279,58 +320,9 @@ class Chords
 				state = :none
 			end
 		end
-	end
-	
-	def play
-		@chords.each do |chord|
-			chord.notes.each do |note|
-				$scheduler.noteOn(note)
-			end
-			
-			sleep(chord.duration * 0.5)
-			
-			chord.notes.each do |note|
-				$scheduler.noteOff(note)
-			end
-		end
-	end
-			
-end
-
-	
-=begin
-def noteName2noteNumber(noteName)
-
-	case noteName
-	when "c"
-		63
-	when "c#", "db"
-		64
-	when "d"
-		65
-	when "d#", "eb"
-		66
-	when "e"
-		67
-	when "f"
-		68
-	when "f#","gb"
-		69
-	when "g"
-		70
-	when "g#", "ab"
-		71
-	when "a"
-		72
-	when "a#","bb"
-		73
-	when "b"
-		74
-	else
-		raise "#{noteName} can't be recognized as note name."
+		@chords
 	end
 end
-=end
 
 $soundDelegate = SoundDelegate.new
 $scheduler = MyScheduler.sharedMyScheduler
@@ -367,12 +359,30 @@ class Controller
 		@soundDelegate = $soundDelegate
 		@audioEngine.delegate = @soundDelegate
 	end
+		
+	def transpose(num)
+		string = @field.string
+
+		string = string.each_line.map do |line|
+			line_chords = ChordsExtractor.new(line).chords
+			line_chords.map do |chord|
+				chord.transpose!(num)
+			end.join("-").lstrip
+		end.join("\n")
+		@field.string = string
+	end
+	
+	def up(sender)
+		transpose(1)
+	end
+	
+	def down(sender)
+		transpose(-1)
+	end
 	
 	def doplay(sender)
-	
 		#Here is what things happen.
 		@field.string.play
-				
 	end
 
 end
