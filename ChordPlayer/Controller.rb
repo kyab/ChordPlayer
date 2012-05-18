@@ -159,6 +159,8 @@ class Chord
 			[3,6,9]
 		when "m6"
 			[3,7,9]
+		when "m9"
+			[3,7,14]
 		when "M7","M"
 			[4,7,11]
 		when "6"
@@ -179,6 +181,8 @@ class Chord
 			[4,7,10,21]
 		when "7(-13)"
 			[4,7,10,20]
+		when "7(+13)"
+			[4,7,10,22]
 		else
 			raise "\"#{@subpart_str}\"not supported"
 		end
