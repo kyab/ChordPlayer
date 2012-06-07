@@ -2,7 +2,7 @@
 #  AppDelegate.rb
 #  ChordPlayer
 #
-#  Created by 吉岡 紘二 on 12/05/13.
+#  Created by kyab on 12/05/13.
 #  Copyright 2012年 __MyCompanyName__. All rights reserved.
 #
 

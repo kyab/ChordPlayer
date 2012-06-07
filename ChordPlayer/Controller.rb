@@ -2,7 +2,7 @@
 #  Controller.rb
 #  ChordPlayer
 #
-#  Created by 吉岡 紘二 on 12/05/13.
+#  Created by kyab on 12/05/13.
 #  Copyright 2012年 __MyCompanyName__. All rights reserved.
 #
 
@@ -77,7 +77,7 @@ def transpose(baseName, num)
 		baseName
 	end	
 		
-	chords_array= ["C","C#","D","D#","E","F","F#","G", "G#","A","A#","B"] #=>size = 12
+	chords_array= ["C","C#","D","D#","E","F","F#","G", "G#","A","A#","B"] #=>.size = 12
 	fromC = chords_array.index(normalizedBaseName)
 	raise "basename error. \"#{baseName}\"" if fromC == nil
 	
@@ -211,6 +211,7 @@ class Chord
 		when 4
 			"  "
 		end
+		ret
 	end
 	
 	def transpose!(num)
